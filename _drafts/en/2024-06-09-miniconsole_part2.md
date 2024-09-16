@@ -1,8 +1,14 @@
 ---
-title: "Retro handheld II : Connecting an Xbox controller to a STM32 microcontroller"
-date: 2024-06-09
-categories: [Embedded, Retro handheld]
-tags: [ble, reverse, st, C] 
+title: 'Retro handheld II : Connecting an Xbox controller to a STM32 microcontroller'
+date: 2024-06-09T00:00:00.000Z
+categories:
+  - Embedded
+  - Retro handheld
+tags:
+  - ble
+  - reverse
+  - st
+  - C
 media_subpath: /assets/img/posts/miniconsole
 lang: en
 ---
@@ -21,8 +27,7 @@ For example, if I press the button 'B', the controller send the following frame 
 _BLE packet received when button B is pressed_
 
 The most important part of this packet is the BLE attribute value, containing information about all the controller inputs.
-So, I filled an Excel document with the attribute value intercepted for each performed action and split it by byte. Note that to make it easier to reverse the protocol, I only do one action at a time. 
-This way I am able to identify the purpose of each byte field in the BLE attribute value. 
+So, I filled a document with the attribute value intercepted for each performed action and split it by byte. By making sure I always do only one action at a time, I am able to identify the purpose of each byte field in the BLE attribute value.
 Once all the packets captured, I deduced the following table :
 
 ![Table of packets for each action](xbox_parse_table.png){: w="1000" h="700"}
@@ -30,7 +35,7 @@ _Table of packets for each action_
 
 # Writing a Wireshark plugin
 
-To check I didn't do any mistake and to better visualize the packet received, I developed a Wireshark dissector. Dissectors are meant to analyze some part of a packet's data and I choose to integrate one into Wireshark via a plugin.
+To check I didn't do any mistake and to better visualize the packet received, I wrote a Wireshark dissector. Dissectors are meant to analyze some part of a packet's data directly in Wireshark (a free and open-source packet-analyzer). I choose to integrate it into Wireshark via a plugin.
 
 I did that in 3 steps : 
 - I downloaded the Wireshark source code and installed all the compilation tools
@@ -42,6 +47,8 @@ The Xbox controller protocol is then automatically detected when a BLE packet co
 TODO screenshot wireshark
 
 My Xbox controller dissector for Wireshark is available on Github : 
+
+LINK to github wireshark
 
 # The controller handshake
 
