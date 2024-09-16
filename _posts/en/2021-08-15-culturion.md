@@ -1,10 +1,15 @@
 ---
-title: "Culturion : Test your France knowledege"
-description: "A successful mobile application to learn and play with French culture."
-date: 2021-08-15
-categories: [Mobile]
-media_subpath: /assets/img/posts/bustracker
-tags: [mobile, game, android, java]     # TAG names should always be lowercase
+title: 'Culturion : Test your knowledege of France'
+description: A successful mobile application to learn and play with French culture.
+date: 2021-08-15T00:00:00.000Z
+categories:
+  - Mobile
+media_subpath: /assets/img/posts/culturion
+tags:
+  - mobile
+  - game
+  - android
+  - java
 lang: en
 ---
 
